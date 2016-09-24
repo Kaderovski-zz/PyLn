@@ -28,37 +28,75 @@ with open('tmp/out-file.txt', 'w') as f:
 # Convert it in str
 oRequests = str(oRequest)
 
-# Here is the regex works bash on the output.txt
-# Need to create a Python one to avoir subprocess.call
-with open('tmp/retour.txt', 'w') as d:
-    oSed = subprocess.call(['bash', 'cut.bash', 'tmp/out-file.txt'], stdout=d)
 
-# In the debug mode, print the output of bash
-oContent = subprocess.call(['cat', 'tmp/retour.txt'])
 
-# If there is no answer from the evi.com, the file will be empty
-# So we check for the answer 
+# We know there is two output : tk_common and tk_text
+# We will make to pattern regex to define the oSayfunc()
 
-if os.stat("tmp/retour.txt").st_size == 0:
-    #print("This is an empty file")
+oFind_common = 0
+oFind_text = 0
+
+with open("tmp/out-file.txt") as f:
+    for line in f:
+            
+        if re.search(r'tk_common', line) is not None:
+            print("I find tk_common in out-file")
+            oFind_common = 1
+            break
+
+        elif re.search(r'tk_text', line) is not None:
+            print("I find tk_text in out-file")
+            oFind_text = 1
+            break
+
+        else:
+            print("Error")
+
+
+if oFind_common == 1 :
+    # We start the work    
+    # Here is the regex works bash on the output.txt
+    # Need to create a Python one to avoir subprocess.call
+    
+    with open('tmp/retour.txt', 'w') as d:
+        oSed = subprocess.call(['bash', 'cut.bash', 'tmp/out-file.txt'], stdout=d)
+
+        # In the debug mode, print the output of bash
+        oContent = subprocess.call(['cat', 'tmp/retour.txt'])
+
+        # Preparing to read
+        with open ("tmp/retour.txt", "r") as retour:
+            data=retour.read()
+
+            # Reading from the oSay_func()
+            oSay_func(data)
+
+
+elif oFind_text == 1 :
+    # We start the work    
+    # Here is the regex works bash on the output.txt
+    # Need to create a Python one to avoir subprocess.call
+    
+    with open('tmp/retour.txt', 'w') as d:
+        oSed = subprocess.call(['bash', 'cut_h3.bash', 'tmp/out-file.txt'], stdout=d)
+
+        # In the debug mode, print the output of bash
+        oContent = subprocess.call(['cat', 'tmp/retour.txt'])
+
+        # Preparing to read
+        with open ("tmp/retour.txt", "r") as retour:
+            data=retour.read()
+
+            # Reading from the oSay_func()
+            oSay_func(data)
+
+else :
     oSay_func("Sorry, I do not know the answer.")
 
-else:
-    # Preparing to read
-    with open ("tmp/retour.txt", "r") as retour:
-        data=retour.read()
 
-    # Reding from the oSay_func()
-    oSay_func(data)
-
-# After saying, we need to remove the two files : out-file.txt and retour.txt
-# We need to segment this function to another file.
 def purge(dir, pattern):
     for f in os.listdir(dir):
         if re.search(pattern, f):
             os.remove(os.path.join(dir, f))
 
 purge('tmp/', 'txt')
-
-# Todo :
-# Preparing the different output format (I saw ther is an h3 html tag that can pass)

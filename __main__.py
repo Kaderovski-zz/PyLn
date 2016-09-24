@@ -36,14 +36,20 @@ with open('tmp/retour.txt', 'w') as d:
 # In the debug mode, print the output of bash
 oContent = subprocess.call(['cat', 'tmp/retour.txt'])
 
-# Preparing to read
-with open ("tmp/retour.txt", "r") as retour:
-    data=retour.read()
+# If there is no answer from the evi.com, the file will be empty
+# So we check for the answer 
 
-# Reding from the oSay_func()
-oSay_func(data)
+if os.stat("tmp/retour.txt").st_size == 0:
+    #print("This is an empty file")
+    oSay_func("Sorry, I do not know the answer.")
 
+else:
+    # Preparing to read
+    with open ("tmp/retour.txt", "r") as retour:
+        data=retour.read()
 
+    # Reding from the oSay_func()
+    oSay_func(data)
 
 # After saying, we need to remove the two files : out-file.txt and retour.txt
 # We need to segment this function to another file.
@@ -55,6 +61,4 @@ def purge(dir, pattern):
 purge('tmp/', 'txt')
 
 # Todo :
-# Actually, if the answer is not find on evi.com, we need to make a condition to print "not found message"
-# Or read it with the oSay_func()
-# tk_not_answered
+# Preparing the different output format (I saw ther is an h3 html tag that can pass)

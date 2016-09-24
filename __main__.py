@@ -76,7 +76,7 @@ while True :
             # Need to create a Python one to avoir subprocess.call
             
             with open('tmp/retour.txt', 'w') as d:
-                oSed = subprocess.call(['bash', 'cut.bash', 'tmp/out-file.txt'], stdout=d)
+                oSed = subprocess.call(['bash', 'BashReg/cut.bash', 'tmp/out-file.txt'], stdout=d)
 
                 # In the debug mode, print the output of bash
                 oContent = subprocess.call(['cat', 'tmp/retour.txt'])
@@ -96,7 +96,7 @@ while True :
             # Need to create a Python one to avoir subprocess.call
             
             with open('tmp/retour.txt', 'w') as d:
-                oSed = subprocess.call(['bash', 'cut_h3.bash', 'tmp/out-file.txt'], stdout=d)
+                oSed = subprocess.call(['bash', 'BashReg/cut_h3.bash', 'tmp/out-file.txt'], stdout=d)
 
                 # In the debug mode, print the output of bash
                 oContent = subprocess.call(['cat', 'tmp/retour.txt'])

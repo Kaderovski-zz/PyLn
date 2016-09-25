@@ -5,8 +5,11 @@
 
 import subprocess
 
-def oSay_func(arg):
+def oSay_func_eng(arg):
     subprocess.call(['google_speech', '-l', 'en', arg, '-e', 'speed', '1.1'])
     return
 
+def oSay_func_fr(arg):
+    subprocess.call(['google_speech', '-l', 'fr', arg, '-e', 'speed', '1.2'])
+    return
 

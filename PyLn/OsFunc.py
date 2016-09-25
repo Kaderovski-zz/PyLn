@@ -12,8 +12,8 @@ from oSayFunc import *
 from oPurgeFunc import *
 
 # Define used Path Dir :
-BashFunc = 'BashFunc/'
-Tmp = 'tmp/'
+BashFunc = '../BashFunc/'
+Tmp = '../tmp/'
 
 def power_func() :
             
@@ -23,6 +23,6 @@ def power_func() :
     with open ('{0}'.format(Tmp) + 'acpi.txt', "r") as retour:
         data=retour.read()
     # Reading from the oSay_func()
-    oSay_func('There is ' + data + 'battery left')
+    oSay_func_eng('There is ' + data + 'battery left')
     purge('{0}'.format(Tmp), 'acpi.txt') 
 

@@ -10,11 +10,12 @@ import subprocess
 import re
 from OsFunc import * 
 from oSayFunc import *
+from oCommonFunc import *
 from oPurgeFunc import *
 
 # Define used Path Dir :
-BashReg = 'BashReg/'
-Tmp = 'tmp/'
+BashReg = '../BashReg/'
+Tmp = '../tmp/'
 
 while True :
 
@@ -30,6 +31,9 @@ while True :
     # That will grep the "battery" word and start it 
     elif oQuestion == "battery" :
         power_func()        
+
+    elif oQuestion == "news" :
+        get_the_news_func()
 
     else :
         # As we doing a curl from the evi.com/q/ we need to replace spaces with "_"
@@ -105,9 +109,9 @@ while True :
                     data=retour.read()
 
                     # Reading from the oSay_func()
-                    oSay_func(data)
+                    oSay_func_eng(data)
 
         else :
-            oSay_func("Sorry, I do not know the answer.")
+            oSay_func_eng("Sorry, I do not know the answer.")
         
         purge('{0}'.format(Tmp), 'txt')

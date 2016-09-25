@@ -12,6 +12,7 @@ from OsFunc import *
 from oSayFunc import *
 from oCommonFunc import *
 from oPurgeFunc import *
+from oHelpFunc import *
 
 # Define used Path Dir :
 BashReg = '../BashReg/'
@@ -23,7 +24,7 @@ while True :
     oQuestion = input("What is your question ? ")
 
     # I have to create a Function Def for personnal answer
-    if oQuestion == "exit" :
+    if oQuestion == "exit" or oQuestion == "quit" :
         subprocess.call(['google_speech', '-l', 'en', 'It was a pleasure to work with you, see you soon', '-e', 'speed', '1.1'])
         sys.exit()
 
@@ -34,6 +35,9 @@ while True :
 
     elif oQuestion == "news" :
         get_the_news_func()
+
+    elif oQuestion == "help" :
+        help_func()
 
     else :
         # As we doing a curl from the evi.com/q/ we need to replace spaces with "_"

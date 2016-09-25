@@ -20,15 +20,19 @@ from oHelpFunc import *
 BashReg = '../BashReg/'
 Tmp = '../tmp/'
 
+
 while True :
 
-    # Asking user question :
-    oQuestion = input("What is your question ? ")
-
-    # I have to create a Function Def for personnal answer
-    if oQuestion == "exit" or oQuestion == "quit" :
-        subprocess.call(['google_speech', '-l', 'en', 'It was a pleasure to work with you, see you soon', '-e', 'speed', '1.1'])
-        sys.exit()
+    # Asking user question or action :
+    oQuestion = input(">>> ")
+    
+    # If User Input is empty, return to the beginning of while True :
+    if oQuestion == "" : 
+        pass 
+    
+    # Exit program
+    elif oQuestion == "exit" or oQuestion == "quit" :
+        quit_func()
 
     # Need to change it to make a Regex Function 
     # That will grep the "battery" word and start it 

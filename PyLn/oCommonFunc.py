@@ -17,6 +17,13 @@ BashFunc = '../BashFunc/'
 Tmp = '../tmp/'
 
 
+# Here is a function to quit the program
+
+def quit_func():
+    oQuit_message =subprocess.call(['google_speech', '-l', 'en', 'It was a pleasure to work with you, see you soon', '-e', 'speed', '1.1'])
+    # Exit     
+    sys.exit()
+
 # Here is a function to get the News from 
 # French newspaper LeMonde.fr
 

@@ -38,7 +38,7 @@ while True :
         oInput=oQuestion.replace(" ", "_")
 
         # We put the curl's output inside a text.file
-        with open('tmp/out-file.txt', 'w') as f:
+        with open('../tmp/out-file.txt', 'w') as f:
             oRequest = subprocess.call(['curl', '--silent', 'https://www.evi.com/q/' + oInput], stdout=f)
 
         # Convert it in str
@@ -52,7 +52,7 @@ while True :
         oFind_common = 0
         oFind_text = 0
 
-        with open("tmp/out-file.txt") as f:
+        with open("../tmp/out-file.txt") as f:
             for line in f:
                     
                 if re.search(r'tk_common', line) is not None:
@@ -75,14 +75,14 @@ while True :
             # Here is the regex works bash on the output.txt
             # Need to create a Python one to avoir subprocess.call
             
-            with open('tmp/retour.txt', 'w') as d:
-                oSed = subprocess.call(['bash', 'BashReg/cut.bash', 'tmp/out-file.txt'], stdout=d)
+            with open('../tmp/retour.txt', 'w') as d:
+                oSed = subprocess.call(['bash', '../BashReg/cut.bash', '../tmp/out-file.txt'], stdout=d)
 
                 # In the debug mode, print the output of bash
-                oContent = subprocess.call(['cat', 'tmp/retour.txt'])
+                oContent = subprocess.call(['cat', '../tmp/retour.txt'])
 
                 # Preparing to read
-                with open ("tmp/retour.txt", "r") as retour:
+                with open ("../tmp/retour.txt", "r") as retour:
                     data=retour.read()
 
                     # Reading from the oSay_func()
@@ -95,14 +95,14 @@ while True :
             # Here is the regex works bash on the output.txt
             # Need to create a Python one to avoir subprocess.call
             
-            with open('tmp/retour.txt', 'w') as d:
-                oSed = subprocess.call(['bash', 'BashReg/cut_h3.bash', 'tmp/out-file.txt'], stdout=d)
+            with open('../tmp/retour.txt', 'w') as d:
+                oSed = subprocess.call(['bash', '../BashReg/cut_h3.bash', '../tmp/out-file.txt'], stdout=d)
 
                 # In the debug mode, print the output of bash
-                oContent = subprocess.call(['cat', 'tmp/retour.txt'])
+                oContent = subprocess.call(['cat', '../tmp/retour.txt'])
 
                 # Preparing to read
-                with open ("tmp/retour.txt", "r") as retour:
+                with open ("../tmp/retour.txt", "r") as retour:
                     data=retour.read()
 
                     # Reading from the oSay_func()
@@ -112,4 +112,4 @@ while True :
             oSay_func("Sorry, I do not know the answer.")
 
 
-        purge('tmp/', 'txt')
+        purge('../tmp/', 'txt')

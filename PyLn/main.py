@@ -13,8 +13,8 @@ from oSayFunc import *
 from oPurgeFunc import *
 
 # Define used Path Dir :
-BashReg = '../BashReg/'
-Tmp = '../tmp/'
+BashReg = 'BashReg/'
+Tmp = 'tmp/'
 
 while True :
 

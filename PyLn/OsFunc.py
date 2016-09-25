@@ -12,8 +12,8 @@ from oSayFunc import *
 from oPurgeFunc import *
 
 # Define used Path Dir :
-BashFunc = '../BashFunc/'
-Tmp = '../tmp/'
+BashFunc = 'BashFunc/'
+Tmp = 'tmp/'
 
 def power_func() :
             

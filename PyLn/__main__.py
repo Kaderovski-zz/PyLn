@@ -8,6 +8,7 @@
 import os, sys
 import subprocess
 import re
+from OsFunc import * 
 
 # Define used Path Dir :
 BashReg = '../BashReg/'
@@ -33,7 +34,7 @@ while True :
 
     # I have to create a Function Def for personnal answer
     if oQuestion == "exit" :
-        subprocess.call(['google_speech', '-l', 'en', 'It was a pleasur to work with you, see you soon', '-e', 'speed', '1.1'])
+        subprocess.call(['google_speech', '-l', 'en', 'It was a pleasure to work with you, see you soon', '-e', 'speed', '1.1'])
         sys.exit()
 
     else :
@@ -114,6 +115,5 @@ while True :
 
         else :
             oSay_func("Sorry, I do not know the answer.")
-
-
+        
         purge('{0}'.format(Tmp), 'txt')

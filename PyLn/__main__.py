@@ -9,23 +9,12 @@ import os, sys
 import subprocess
 import re
 from OsFunc import * 
+from oSayFunc import *
+from oPurgeFunc import *
 
 # Define used Path Dir :
 BashReg = '../BashReg/'
 Tmp = '../tmp/'
-
-# Define All Func needed
-#
-# Define the output voice as a function
-def oSay_func(arg):
-    subprocess.call(['google_speech', '-l', 'en', arg, '-e', 'speed', '1.1'])
-    return
-
-# Define delete function
-def purge(dir, pattern):
-    for f in os.listdir(dir):
-        if re.search(pattern, f):
-            os.remove(os.path.join(dir, f))
 
 while True :
 
@@ -36,6 +25,11 @@ while True :
     if oQuestion == "exit" :
         subprocess.call(['google_speech', '-l', 'en', 'It was a pleasure to work with you, see you soon', '-e', 'speed', '1.1'])
         sys.exit()
+
+    # Need to change it to make a Regex Function 
+    # That will grep the "battery" word and start it 
+    elif oQuestion == "battery" :
+        power_func()        
 
     else :
         # As we doing a curl from the evi.com/q/ we need to replace spaces with "_"

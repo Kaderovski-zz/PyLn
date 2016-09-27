@@ -11,6 +11,7 @@ def help_func():
           '---Specials Commands ---' '\n\n'
           'news      :       Getting news from LeMonde.fr''\n' 
           'battery   :       Giving actual state of battery''\n'
+          'clear     :       Clearing the actual screen-shell''\n'
           'exit/quit :       Exit from PyLn''\n')
     return
 

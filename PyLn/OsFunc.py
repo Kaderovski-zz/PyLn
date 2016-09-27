@@ -26,3 +26,7 @@ def power_func() :
     oSay_func_eng('There is ' + data + 'battery left')
     purge('{0}'.format(Tmp), 'acpi.txt') 
 
+
+# Here is the clear function
+def clear_func() :
+    tmp = subprocess.call('clear',shell=True)

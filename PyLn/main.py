@@ -41,6 +41,9 @@ while True :
     elif oQuestion == "exit" or oQuestion == "quit" :
         quit_func()
 
+    elif oQuestion == "clear" :
+        clear_func()
+
     # Need to change it to make a Regex Function 
     # That will grep the "battery" word and start it 
     elif oQuestion == "battery" :

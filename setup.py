@@ -19,7 +19,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Topic :: Utilities',
-        'Operating System :: OS Independent'],
+        'Operating System :: Linux'],
     author='Corentin Deret',
     author_email='c.deret@hotmail.fr',
 )

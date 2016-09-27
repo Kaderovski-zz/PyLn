@@ -20,6 +20,13 @@ from oHelpFunc import *
 BashReg = '../BashReg/'
 Tmp = '../tmp/'
 
+# Here is the welcome message that the user get at the start program
+print("\n\n ===========================\n Welcome to PyLN program !!!\n ===========================\n\n",
+      "Developed by :   Cdiez50\n",
+      "Github :         https://github.com/Cdiez50/PyLn\n",
+      "Version :        0.1\n\n",
+      "Type \"help\" command to have informations !\n\n")
+
 
 while True :
 
@@ -99,7 +106,7 @@ while True :
                     data=retour.read()
 
                     # Reading from the oSay_func()
-                    oSay_func(data)
+                    oSay_func_eng(data)
 
 
         elif oFind_text == 1 :

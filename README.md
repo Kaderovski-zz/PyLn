@@ -15,5 +15,4 @@ It should be like a local library which contains all the different programs and 
 I'm not pretending to be a good programmer or unix user, so help and tips will be appreciated. 
 
 #### Next ToDo :
-- Print welcome message when started
 - Create Dictionary Os_Func

@@ -16,3 +16,17 @@ I'm not pretending to be a good programmer or unix user, so help and tips will b
 
 #### Next ToDo :
 - Create Dictionary Os_Func
+
+I'd like to make an autonome database straight on a distant server to implement those following features : 
+- Make history ask and answer
+- Be able to search, sort the knowledge general/user database
+- Implement the way to set local database interface (UserLan)
+- Know if ask request is already in base {{if YES}} not make a WAN request but Server to Client
+
+### The Database structure : 
+USER | DATE | QUESTION | ANSWER
+
+
+
+
+
